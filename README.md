@@ -7,5 +7,6 @@ Jotain
 
 [komentorivi.txt](https://github.com/Qwecu/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+[tyoaikakirjanpito.txt](https://github.com/Qwecu/ot-harjoitustyo/blob/master/laskarit/viikko1/tyoaikakirjanpito.txt)
 
 [vaatimusmaarittely.md](https://github.com/Qwecu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)

@@ -6,3 +6,6 @@ Jotain
 
 
 [komentorivi.txt](https://github.com/Qwecu/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
+
+[vaatimusmaarittely.md](https://github.com/Qwecu/ot-harjoitustyo/blob/master/vaatimusmaarittely.md)

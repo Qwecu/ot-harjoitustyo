@@ -5,4 +5,4 @@ Jotain
 	1. lisää
 
 
-[komentorivi.txt] https://github.com/Qwecu/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt
+[komentorivi.txt](https://github.com/Qwecu/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)

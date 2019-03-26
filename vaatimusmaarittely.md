@@ -24,9 +24,9 @@ Pelin alussa kaikki statit ovat ihannetasolla. Pelaaminen koostuu eri hoito-ohje
 
 ## Jatkokehitysideoita
 
--top scores -lista
--pelin tallentaminen ja tallennetun pelin lataaminen
--erilaiset asetukset ja vaikeusasteet: eri määrä statteja, helpompi/vaikeampi kuolla
--tunnelmaelementit: lemmikille generoidaan nimi, ulkonäkö ja luonnehdinta, hoito-ohjelmille generoidaan nimet
--kauppa, josta voi ostaa esineitä, joilla korjataan yhtä stattia kerrallaan tai vaihdetaan hyödytön hoito-ohjelma toiseksi
--vaikeusasteen muuttuminen lemmikin ikääntymisen myötä
+- top scores -lista
+- pelin tallentaminen ja tallennetun pelin lataaminen
+- erilaiset asetukset ja vaikeusasteet: eri määrä statteja, helpompi/vaikeampi kuolla
+- tunnelmaelementit: lemmikille generoidaan nimi, ulkonäkö ja luonnehdinta, hoito-ohjelmille generoidaan nimet
+- kauppa, josta voi ostaa esineitä, joilla korjataan yhtä stattia kerrallaan tai vaihdetaan hyödytön hoito-ohjelma toiseksi
+- vaikeusasteen muuttuminen lemmikin ikääntymisen myötä

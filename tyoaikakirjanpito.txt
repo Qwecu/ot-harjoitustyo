@@ -2,4 +2,5 @@
 25.3. prokrastinaatioita ym 2 h
 26.3. vaatimusmäärittely 3 h
 1.4. testiplugarin asennusongelman selvittely vertaistuen avulla 1 h
-2.4. projektin koodausta 2 h
+2.4. projektin koodausta 3 h
+2.4. pään lyömistä seinään kun yritän saada maven-projektiin testit 2 h

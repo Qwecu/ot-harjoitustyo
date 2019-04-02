@@ -5,7 +5,9 @@
  */
 package fluffypet.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *
@@ -13,13 +15,28 @@ import java.util.HashMap;
  */
 public class FluffyService {
 
+    
     public static void main(String[] args) throws Exception {
+        ArrayList<CarePlan> plans = new ArrayList<CarePlan>();
+        Scanner sc = new Scanner(System.in);
+        for(int i = 0; i < Settings.DefaultCarePlanCount; i++){
+            plans.add(new FluffyService().newCarePlan());
+        }
         Pet pet = new FluffyService().newPet();
         while (pet.isLiving()) {
-            pet.AdvanceTime(new FluffyService().newCarePlan());
+            System.out.println("Mitä hoito-ohjelmaa sovelletaan tänään? (1-" + plans.size() + ")" );
+            String planstring = sc.nextLine();
+            try{
+                int planint = Integer.parseInt(planstring);
+                CarePlan selectedPlan = plans.get(planint -1);
+                pet.AdvanceTime(selectedPlan);
+            }
+            catch(Exception e){
+                System.out.println("Yritä uudelleen");
+            }
             printStats(pet);
         }
-        System.out.println("Kuolit!");
+        System.out.println("Kuolit! Pisteesi: " + pet.getAge());
     }
 
     private static void printStats(Pet pet) {

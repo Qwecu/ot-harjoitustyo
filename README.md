@@ -33,14 +33,6 @@ Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/ja
 
 ### Suoritettavan jarin generointi
 
-Komento
-
-```
-mvn package
-```
-
-generoi hakemistoon _target_ suoritettavan jar-tiedoston _OtmTodoApp-1.0-SNAPSHOT.jar_
-
 ### JavaDoc
 
 JavaDoc generoidaan komennolla

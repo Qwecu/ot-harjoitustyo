@@ -6,6 +6,7 @@
 2.4. pään lyömistä seinään kun yritän saada maven-projektiin testit 2 h
 9.4. Prokrastinaatio 4 h
 9.4. UI-taistelua 3 h
-9.4. Koodausta 3 h
+9.4. Koodausta 2 h
+9.4. Luokkakaavio 1 h
 
-Yhteensä 18 h
+Yhteensä 24 h

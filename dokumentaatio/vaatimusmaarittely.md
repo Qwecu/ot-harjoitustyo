@@ -12,7 +12,7 @@ Pelissä ei ole varsinaisia käyttäjärooleja. Myöhemmin voidaan lisätä top 
 
 Sovellus koostuu kolmesta eri näkymästä
 
-<img src="https://raw.githubusercontent.com/qwecu/ot-harjoitustyo/master/vaatimusmaarittely.png" width="750">
+<img src="https://raw.githubusercontent.com/qwecu/ot-harjoitustyo/master/dokumentaatio/vaatimusmaarittely.png" width="750">
 
 Sovellus aukeaa uusi peli -näkymään, josta siirrytään peliin painamalla "uusi peli". Pelissä on näkyvissä lemmikin senhetkiset statit, kuva lemmikistä sekä nappulat, joista voi valita eri hoito-ohjelmia. Pelin päätyttyä ilmoitetaan saavutettu pistemäärä sekä annetaan mahdollisuus pelata uusi peli.
 

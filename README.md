@@ -4,7 +4,7 @@ Sovelluksen idea on kasvattaa lemmikki mahdollisimman korkeaan ikään.
 
 ## Dokumentaatio
 
-[tyoaikakirjanpito.txt](https://github.com/Qwecu/ot-harjoitustyo/blob/master/tyoaikakirjanpito.txt)
+[tyoaikakirjanpito.txt](https://github.com/Qwecu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.txt)
 
 [vaatimusmaarittely.md](https://github.com/Qwecu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 

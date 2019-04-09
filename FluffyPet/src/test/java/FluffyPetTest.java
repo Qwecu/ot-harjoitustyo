@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import fluffypet.domain.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,29 +17,14 @@ import static org.junit.Assert.*;
  * @author Aubergine
  */
 public class FluffyPetTest {
-    
+
     public FluffyPetTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void carePlanHasValues() throws Exception {
+        CarePlan cp = new CarePlan(new String []{"test"});
+        assertTrue(cp.getStatIncreases() != null && !cp.getStatIncreases().isEmpty());
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

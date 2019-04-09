@@ -1,1 +1,0 @@
-<img src="https://raw.githubusercontent.com/qwecu/ot-harjoitustyo/master/arkkitehtuuri.png" width="750">

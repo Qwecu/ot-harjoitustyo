@@ -23,8 +23,22 @@ public class FluffyPetTest {
 
     @Test
     public void carePlanHasValues() throws Exception {
-        CarePlan cp = new CarePlan(new String []{"test"});
+        CarePlan cp = new CarePlan(new String[]{"test"});
         assertTrue(cp.getStatIncreases() != null && !cp.getStatIncreases().isEmpty());
+    }
+
+    @Test
+    public void initialize() throws Exception {
+        FluffyGame game = new FluffyGame();
+        assertTrue(game.planCount() > 0);
+    }
+    
+    public void care() throws Exception{
+        FluffyGame game = new FluffyGame();
+        game.createPet();
+        int i = game.getPet().getAge();
+        game.careForPet(0);
+        assertTrue(game.getPet().getAge() - i == 1);
     }
 
 }

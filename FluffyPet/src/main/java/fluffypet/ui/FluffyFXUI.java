@@ -6,14 +6,18 @@
 package fluffypet.ui;
 
 import fluffypet.domain.*;
+import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 
 /**
  *
@@ -24,6 +28,18 @@ public class FluffyFXUI extends Application {
     private FluffyGame game;
 
     FlowPane root = new FlowPane();
+    HBox statbox = new HBox();
+
+    Image image;
+
+    public FluffyFXUI() {
+        try {
+            this.image = new Image("http://huukka.sarjakuvablogit.com/files/2010/10/krplouhi.jpg");
+        }
+        catch (Exception e) {
+
+        }
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -43,7 +59,12 @@ public class FluffyFXUI extends Application {
             });
             root.getChildren().add(btn);
         }
+        ImageView imageView = new ImageView(image);
         
+        root.getChildren().add(statbox);
+        root.getChildren().add(imageView);
+
+
         Scene scene = new Scene(root, 300, 250);
 
         primaryStage.setTitle("Fluffy Pet");

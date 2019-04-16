@@ -53,34 +53,29 @@ public class FluffyFXUI extends Application {
         catch (Exception e) {
 
         }
-/*
-        series1 = new XYChart.Series();
-        series2 = new XYChart.Series();
-        series3 = new XYChart.Series();
-        series4 = new XYChart.Series();*/
-
         statdata = new HashMap<String, XYChart.Series>();
 
     }
 
     public void updateGraph(int age, HashMap<String, Double> statValues) {
-        /*series1.getData().add(new XYChart.Data(age, statValues.get(0)));
-        series2.getData().add(new XYChart.Data(age, statValues.get(1)));
-        series3.getData().add(new XYChart.Data(age, statValues.get(2)));
-        series4.getData().add(new XYChart.Data(age, statValues.get(3)));*/
-        for(String s : statValues.keySet()){
+        for (String s : statValues.keySet()) {
             statdata.get(s).getData().add(new XYChart.Data(age, statValues.get(s)));
         }
+        statdata.get("Yliannostus").getData().add(new XYChart.Data(age, Settings.LethalDeviationAmount));
+        statdata.get("Puutoskuolema").getData().add(new XYChart.Data(age, Settings.LethalDeviationAmount * -1.0));
+
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         game = new FluffyGame();
         game.createPet();
-        
-        for (String stat : Settings.DefaultStats){
+
+        for (String stat : Settings.DefaultStats) {
             statdata.put(stat, new XYChart.Series());
         }
+        statdata.put("Yliannostus", new XYChart.Series());
+        statdata.put("Puutoskuolema", new XYChart.Series());
 
         for (int i = 0; i < game.planCount(); i++) {
             Button btn = new Button();
@@ -92,6 +87,9 @@ public class FluffyFXUI extends Application {
                     game.careForPet(id);
                     updateGraph(game.getPet().getAge(), game.getPet().getStats());
                     System.out.print(game.statInfo());
+                    if (game.getPet().isLiving() == false) {                        
+                        primaryStage.close();
+                    }
                 }
             });
             root.getChildren().add(btn);
@@ -107,14 +105,11 @@ public class FluffyFXUI extends Application {
 
         LineChart linechart = new LineChart(xAxis, yAxis);
 
-        for(XYChart.Series xy : statdata.values()){
-            linechart.getData().add(xy);
+        for (String s : statdata.keySet()) {
+
+            linechart.getData().add(statdata.get(s));
+            statdata.get(s).setName(s);
         }
-        /*
-        linechart.getData().add(series1);
-        linechart.getData().add(series2);
-        linechart.getData().add(series3);
-        linechart.getData().add(series4);*/
 
         root.getChildren().add(linechart);
 
@@ -122,7 +117,6 @@ public class FluffyFXUI extends Application {
 
         primaryStage.setTitle("Fluffy Pet");
         primaryStage.setScene(scene);
-        //primaryStage.setScene(scene2);
 
         primaryStage.show();
     }

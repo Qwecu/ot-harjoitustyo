@@ -13,6 +13,7 @@ import java.util.HashMap;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -25,6 +26,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -35,7 +37,10 @@ public class FluffyFXUI extends Application {
     private FluffyGame game;
 
     FlowPane root = new FlowPane();
+
     HBox statbox = new HBox();
+
+    VBox startWindow = new VBox();
 
     Image image;
 
@@ -53,7 +58,7 @@ public class FluffyFXUI extends Application {
         catch (Exception e) {
 
         }
-        statdata = new HashMap<String, XYChart.Series>();
+        statdata = new HashMap<>();
 
     }
 
@@ -68,6 +73,7 @@ public class FluffyFXUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         game = new FluffyGame();
         game.createPet();
 
@@ -87,7 +93,7 @@ public class FluffyFXUI extends Application {
                     game.careForPet(id);
                     updateGraph(game.getPet().getAge(), game.getPet().getStats());
                     System.out.print(game.statInfo());
-                    if (game.getPet().isLiving() == false) {                        
+                    if (game.getPet().isLiving() == false) {
                         primaryStage.close();
                     }
                 }
@@ -115,8 +121,21 @@ public class FluffyFXUI extends Application {
 
         Scene scene = new Scene(root, 600, 650);
 
+        Button startButton = new Button();
+        startButton.setText("New game");
+        startButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                primaryStage.setScene(scene);
+            }
+        });
+        
+        startWindow.setAlignment(Pos.CENTER);
+        startWindow.getChildren().add(startButton);
+        Scene startScene = new Scene(startWindow, 600, 650);
+
         primaryStage.setTitle("Fluffy Pet");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(startScene);
 
         primaryStage.show();
     }

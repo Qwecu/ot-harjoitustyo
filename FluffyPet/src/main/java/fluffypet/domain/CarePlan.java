@@ -14,19 +14,21 @@ import java.util.Random;
  */
 public class CarePlan {
 
-    private HashMap<String, Double> statIncreases;
+    private final HashMap<String, Double> statIncreases;
 
-    public CarePlan(String[] stats) throws Exception {
-        if (stats.length == 0) {
-            throw new Exception("CarePlan cannot be initialized wit an empty stat list");
-        }
-        statIncreases = new HashMap<String, Double>();
+    /**
+     *Creates a new randomized CarePlan
+     * 
+     * @param stats List of stats that are affected by the CarePlan
+     */
+    public CarePlan(String[] stats) {
+        statIncreases = new HashMap<>();
         Random random = new Random();
         for (String stat : stats) {
             statIncreases.put(stat, random.nextDouble());
         }
     }
-    
+
     public HashMap getStatIncreases() {
         return statIncreases;
     }

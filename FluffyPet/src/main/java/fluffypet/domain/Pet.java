@@ -13,11 +13,17 @@ import java.util.HashMap;
  */
 public class Pet {
 
-    private HashMap<String, Double> stats;
+    private final HashMap<String, Double> stats;
     private int age;
 
+    /**
+     * Creates a new Pet with the age of 0
+     *
+     * @param statNames The names of the stats of the created pet
+     * @throws Exception
+     */
     public Pet(String[] statNames) throws Exception {
-        stats = new HashMap<String, Double>();
+        stats = new HashMap<>();
         age = 0;
         if (statNames.length == 0) {
             throw new Exception("Pet cannot be initialized wit an empty stat list");
@@ -28,6 +34,11 @@ public class Pet {
         }
     }
 
+    /**
+     * Adjusts the pet's stats according to the CarePlan and increases age by 1
+     *
+     * @param carePlan
+     */
     public void AdvanceTime(CarePlan carePlan) {
         depleteStats();
         applyPlan(carePlan);

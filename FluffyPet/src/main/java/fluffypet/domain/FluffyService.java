@@ -5,8 +5,6 @@
  */
 package fluffypet.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -14,6 +12,7 @@ import java.util.Scanner;
  * @author Aubergine
  */
 public class FluffyService {
+
     static FluffyGame game;
 
     public static void main(String[] args) throws Exception {
@@ -30,27 +29,40 @@ public class FluffyService {
                 System.out.println(game.statInfo());
                 //printStats(game.getPet());
 
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 System.out.println("Yritä uudelleen");
             }
         }
         System.out.println("Kuolit! Pisteesi: " + pet.getAge());
     }
-/*
+    /*
 
-    private static void printStats(Pet pet) {
+     private static void printStats(Pet pet) {
 
-        HashMap<String, Double> stats = pet.getStats();
-        for (String stat : stats.keySet()) {
-            System.out.println(stat + " on " + stats.get(stat));
-        }
-        System.out.println("Lemmikkisi on " + pet.getAge() + " päivää vanha");
-    } */
+     HashMap<String, Double> stats = pet.getStats();
+     for (String stat : stats.keySet()) {
+     System.out.println(stat + " on " + stats.get(stat));
+     }
+     System.out.println("Lemmikkisi on " + pet.getAge() + " päivää vanha");
+     } */
 
+    /**
+     * Returns a new pet with the default settings
+     *
+     * @return A new pet with the default settings
+     * @throws Exception
+     */
     public Pet newPet() throws Exception {
         return new Pet(Settings.DefaultStats);
     }
 
+    /**
+     * Returns a new CarePlan with the default settings
+     *
+     * @return A new CarePlan with the default settings
+     * @throws Exception
+     */
     public CarePlan newCarePlan() throws Exception {
         return new CarePlan(Settings.DefaultStats);
     }

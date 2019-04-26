@@ -13,4 +13,5 @@
 24.4. Tiedostoon kirjoitus, javadoc 3 h
 24.4. Prokrastinaatio 3 h
 26.4. Testejä, high score list 4 h
-Yhteensä 41 h
+26.4. Checkstyle, arkkitehtuurikuvaus 2 h
+Yhteensä 43 h

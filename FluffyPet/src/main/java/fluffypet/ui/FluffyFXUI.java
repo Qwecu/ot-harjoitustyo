@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,6 +21,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -44,12 +47,24 @@ public class FluffyFXUI extends Application {
 
     Image image;
 
+    Label lblHighScores;
+
     XYChart.Series series1;
     XYChart.Series series2;
     XYChart.Series series3;
     XYChart.Series series4;
 
     HashMap<String, XYChart.Series> statdata;
+
+    private void fillHighScores(List<Score> scs) {
+        String text = "";
+        int i = 1;
+        for (Score score : scs) {
+            text += i + ". " + score.getPlayerName() + " " + score.getScore() + "\n";
+            i++;
+        }
+        lblHighScores.setText(text);
+    }
 
     public FluffyFXUI() {
         try {
@@ -71,19 +86,75 @@ public class FluffyFXUI extends Application {
 
     }
 
+    public void endGame() {
+
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         game = new FluffyGame();
         game.createPet();
 
+        lblHighScores = new Label();
+        Button btnExitHighScores = new Button();
+        btnExitHighScores.setText("Exit");
+        btnExitHighScores.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                primaryStage.close();
+            }
+        });
+
+        HBox hbHighScores = new HBox();
+        hbHighScores.getChildren()
+                .addAll(lblHighScores, btnExitHighScores);
+        hbHighScores.setSpacing(
+                10);
+        Scene highScoresScene = new Scene(hbHighScores, 600, 650);
+
+        Label lblPlayerName = new Label("Enter your name:");
+        TextField txtPlayerName = new TextField();
+        Button enterNameButton = new Button();
+        enterNameButton.setText("Submit");
+        enterNameButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (game == null) {
+                    return;
+                }
+                String name = txtPlayerName.getText();
+                name = name.trim().replace(';', ':');
+                if (name.length() > Settings.maxNameLength) {
+                    name = name.substring(0, Settings.maxNameLength);
+                }
+                game.addScore(name, game.getPet().getScore());
+                fillHighScores(game.getHighScores());
+                game = null;
+                primaryStage.setScene(highScoresScene);
+            }
+        });
+
+        HBox hbEnterName = new HBox();
+
+        hbEnterName.getChildren()
+                .addAll(lblPlayerName, txtPlayerName, enterNameButton);
+        hbEnterName.setSpacing(
+                10);
+        Scene enterNameScene = new Scene(hbEnterName, 600, 650);
+
         for (String stat : Settings.DefaultStats) {
             statdata.put(stat, new XYChart.Series());
         }
-        statdata.put("Yliannostus", new XYChart.Series());
-        statdata.put("Puutoskuolema", new XYChart.Series());
 
-        for (int i = 0; i < game.planCount(); i++) {
+        statdata.put(
+                "Yliannostus", new XYChart.Series());
+        statdata.put(
+                "Puutoskuolema", new XYChart.Series());
+
+        for (int i = 0;
+                i < game.planCount();
+                i++) {
             Button btn = new Button();
             btn.setText("Care plan #" + (i + 1));
             final int id = i;
@@ -94,8 +165,7 @@ public class FluffyFXUI extends Application {
                     updateGraph(game.getPet().getAge(), game.getPet().getStats());
                     System.out.print(game.statInfo());
                     if (game.getPet().isLiving() == false) {
-                        game.addScore("UX", game.getPet().getScore());
-                        primaryStage.close();
+                        primaryStage.setScene(enterNameScene);
                     }
                 }
             });
@@ -103,39 +173,53 @@ public class FluffyFXUI extends Application {
         }
         ImageView imageView = new ImageView(image);
 
-        root.getChildren().add(statbox);
-        root.getChildren().add(imageView);
+        root.getChildren()
+                .add(statbox);
+        root.getChildren()
+                .add(imageView);
 
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Päivät");
+
+        xAxis.setLabel(
+                "Päivät");
 
         LineChart linechart = new LineChart(xAxis, yAxis);
 
-        for (String s : statdata.keySet()) {
+        for (String s
+                : statdata.keySet()) {
 
             linechart.getData().add(statdata.get(s));
             statdata.get(s).setName(s);
         }
 
-        root.getChildren().add(linechart);
+        root.getChildren()
+                .add(linechart);
 
         Scene scene = new Scene(root, 600, 650);
 
         Button startButton = new Button();
-        startButton.setText("New game");
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                primaryStage.setScene(scene);
-            }
-        });
-        
+
+        startButton.setText(
+                "New game");
+        startButton.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event
+                    ) {
+                        primaryStage.setScene(scene);
+                    }
+                }
+        );
+
         startWindow.setAlignment(Pos.CENTER);
-        startWindow.getChildren().add(startButton);
+
+        startWindow.getChildren()
+                .add(startButton);
         Scene startScene = new Scene(startWindow, 600, 650);
 
-        primaryStage.setTitle("Fluffy Pet");
+        primaryStage.setTitle(
+                "Fluffy Pet");
         primaryStage.setScene(startScene);
 
         primaryStage.show();

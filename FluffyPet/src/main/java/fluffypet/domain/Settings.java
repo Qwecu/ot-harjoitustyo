@@ -34,9 +34,14 @@ public class Settings {
      * Amount of high scores stored
      */
     public static int highScoreListLength = 20;
-    
+
     /**
      * Filename of the high score list
      */
     public static String highScoreFilename = "hiScore.txt";
+    
+    /**
+     * Max length of player name
+     */
+    public static int maxNameLength = 30;
 }

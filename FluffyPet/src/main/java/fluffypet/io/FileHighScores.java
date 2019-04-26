@@ -36,7 +36,7 @@ public class FileHighScores implements IHighScores {
             while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(";");
                 String user = parts[0];
-                int score = Integer.parseInt(parts[0]);
+                int score = Integer.parseInt(parts[1]);
 
                 highScores.add(new Score(user, score));
             }

@@ -9,6 +9,7 @@ import fluffypet.io.FileHighScores;
 import fluffypet.io.IHighScores;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -56,6 +57,10 @@ public class FluffyGame {
     
     public void addScore(String player, int score) {
         highScores.addScore(new Score(player, score));
+    }
+    
+    public List<Score> getHighScores(){
+        return highScores.getAll();
     }
 
     /**

@@ -15,7 +15,7 @@ public class Pet {
 
     private final HashMap<String, Double> stats;
     private int age;
-    private int score;
+    private double score;
     private int hitpoints;
     private boolean isAlive;
 
@@ -40,6 +40,10 @@ public class Pet {
         }
     }
 
+    private double statScore() {
+        return 0;
+    }
+
     /**
      * Adjusts the pet's stats according to the CarePlan and increases age by 1
      *
@@ -60,7 +64,7 @@ public class Pet {
             isAlive = false;
         }
         age++;
-        score += age;
+        score += age * stats.size() + statScore();
     }
 
     private void depleteStats() {
@@ -87,8 +91,12 @@ public class Pet {
         return true;
     }
 
+    /**
+     * Returns true if the pet is alive
+     *
+     * @return true = alive, false = dead
+     */
     public boolean isLiving() {
-
         return isAlive;
     }
 
@@ -96,11 +104,16 @@ public class Pet {
         return stats;
     }
 
+    /**
+     * Returns the age of the pet
+     *
+     * @return Age of the pet
+     */
     public int getAge() {
         return age;
     }
 
     public int getScore() {
-        return score;
+        return (int) score;
     }
 }

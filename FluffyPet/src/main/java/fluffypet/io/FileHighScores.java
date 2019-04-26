@@ -30,6 +30,11 @@ public class FileHighScores implements IHighScores {
 
     }
 
+    /**
+     * Reads the high scores from a file
+     * @param file filename to use (.txt)
+     * @throws Exception Any I/O Exception
+     */
     public FileHighScores(String file) throws Exception {
         highScores = new ArrayList<>();
         this.file = file;

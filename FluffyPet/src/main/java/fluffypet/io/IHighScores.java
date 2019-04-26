@@ -14,6 +14,10 @@ import java.util.List;
  */
 public interface IHighScores {
 
+    /**
+     * Adds score to high score list if high enough
+     * @param score Score to add
+     */
     void addScore(Score score);
 
     /**

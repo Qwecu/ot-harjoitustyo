@@ -66,6 +66,9 @@ public class FluffyFXUI extends Application {
         lblHighScores.setText(text);
     }
 
+    /**
+     * Constructor
+     */
     public FluffyFXUI() {
         try {
             this.image = new Image("http://huukka.sarjakuvablogit.com/files/2010/10/krplouhi.jpg");
@@ -77,16 +80,17 @@ public class FluffyFXUI extends Application {
 
     }
 
+    /**
+     * Updates the stat graph with new values
+     * @param age new age to add
+     * @param statValues new stat values to add
+     */
     public void updateGraph(int age, HashMap<String, Double> statValues) {
         for (String s : statValues.keySet()) {
             statdata.get(s).getData().add(new XYChart.Data(age, statValues.get(s)));
         }
         statdata.get("Yliannostus").getData().add(new XYChart.Data(age, Settings.LethalDeviationAmount));
         statdata.get("Puutoskuolema").getData().add(new XYChart.Data(age, Settings.LethalDeviationAmount * -1.0));
-
-    }
-
-    public void endGame() {
 
     }
 

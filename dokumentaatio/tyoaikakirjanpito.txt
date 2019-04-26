@@ -10,4 +10,6 @@
 9.4. Luokkakaavio 1 h
 16.4. Ohjelmointia 4 h
 23.4. Katselmointi 3 h
-Yhteensä 31 h
+24.4. Tiedostoon kirjoitus, javadoc 3 h
+24.4. Prokrastinaatio 3 h
+Yhteensä 37 h

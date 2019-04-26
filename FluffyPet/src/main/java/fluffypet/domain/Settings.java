@@ -29,4 +29,14 @@ public class Settings {
      * Default for the amount that stats decrease daily
      */
     public static double StatDepletionDaily = 0.5;
+
+    /**
+     * Amount of high scores stored
+     */
+    public static int highScoreListLength = 20;
+    
+    /**
+     * Filename of the high score list
+     */
+    public static String highScoreFilename = "hiScore.txt";
 }

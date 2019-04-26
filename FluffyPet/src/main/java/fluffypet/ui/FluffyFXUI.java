@@ -94,6 +94,7 @@ public class FluffyFXUI extends Application {
                     updateGraph(game.getPet().getAge(), game.getPet().getStats());
                     System.out.print(game.statInfo());
                     if (game.getPet().isLiving() == false) {
+                        game.addScore("UX", game.getPet().getScore());
                         primaryStage.close();
                     }
                 }

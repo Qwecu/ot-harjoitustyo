@@ -15,6 +15,9 @@ public class Pet {
 
     private final HashMap<String, Double> stats;
     private int age;
+    private int score;
+    private int hitpoints;
+    private boolean isAlive;
 
     /**
      * Creates a new Pet with the age of 0
@@ -25,6 +28,9 @@ public class Pet {
     public Pet(String[] statNames) throws Exception {
         stats = new HashMap<>();
         age = 0;
+        hitpoints = 1;
+        isAlive = true;
+
         if (statNames.length == 0) {
             throw new Exception("Pet cannot be initialized wit an empty stat list");
         }
@@ -40,9 +46,21 @@ public class Pet {
      * @param carePlan
      */
     public void AdvanceTime(CarePlan carePlan) {
+        if (!isAlive) {
+            return;
+        }
         depleteStats();
         applyPlan(carePlan);
+        if (!isWithinHealthyLimits()) {
+            hitpoints--;
+        } else if (hitpoints < 1) {
+            hitpoints++;
+        }
+        if (hitpoints < 0) {
+            isAlive = false;
+        }
         age++;
+        score += age;
     }
 
     private void depleteStats() {
@@ -60,7 +78,7 @@ public class Pet {
         }
     }
 
-    public boolean isLiving() {
+    private boolean isWithinHealthyLimits() {
         for (Double statValue : stats.values()) {
             if (Math.abs(statValue) > Settings.LethalDeviationAmount) {
                 return false;
@@ -69,11 +87,20 @@ public class Pet {
         return true;
     }
 
+    public boolean isLiving() {
+
+        return isAlive;
+    }
+
     public HashMap<String, Double> getStats() {
         return stats;
     }
 
     public int getAge() {
         return age;
+    }
+
+    public int getScore() {
+        return score;
     }
 }

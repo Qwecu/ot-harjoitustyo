@@ -100,6 +100,10 @@ public class Pet {
         return isAlive;
     }
 
+    /**
+     * Stats
+     * @return stats 
+     */
     public HashMap<String, Double> getStats() {
         return stats;
     }
@@ -113,6 +117,10 @@ public class Pet {
         return age;
     }
 
+    /**
+     * Score
+     * @return score 
+     */
     public int getScore() {
         return (int) score;
     }

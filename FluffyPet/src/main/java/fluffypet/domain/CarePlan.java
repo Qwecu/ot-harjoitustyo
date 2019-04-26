@@ -29,6 +29,10 @@ public class CarePlan {
         }
     }
 
+    /**
+     * Stat increases
+     * @return stat increases
+     */
     public HashMap getStatIncreases() {
         return statIncreases;
     }

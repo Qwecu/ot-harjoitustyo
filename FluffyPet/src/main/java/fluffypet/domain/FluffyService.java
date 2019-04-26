@@ -15,6 +15,11 @@ public class FluffyService {
 
     static FluffyGame game;
 
+    /**
+     * The Main method
+     * @param args args
+     * @throws Exception May throw Exception
+     */
     public static void main(String[] args) throws Exception {
         game = new FluffyGame();
         Scanner sc = new Scanner(System.in);

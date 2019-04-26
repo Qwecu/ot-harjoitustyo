@@ -16,7 +16,7 @@ import java.util.List;
  * @author Aubergine
  */
 public class FluffyGame {
-    
+
     private final ArrayList<CarePlan> plans;
     private Pet pet;
     private IHighScores highScores;
@@ -50,16 +50,32 @@ public class FluffyGame {
     public int planCount() {
         return plans.size();
     }
-    
+
+    /**
+     * Pet
+     *
+     * @return pet
+     */
     public Pet getPet() {
         return pet;
     }
-    
+
+    /**
+     * Adds the score to the high score list if high enough
+     *
+     * @param player Player name
+     * @param score Player score
+     */
     public void addScore(String player, int score) {
         highScores.addScore(new Score(player, score));
     }
-    
-    public List<Score> getHighScores(){
+
+    /**
+     * Returns the high score list
+     *
+     * @return The high score list
+     */
+    public List<Score> getHighScores() {
         return highScores.getAll();
     }
 
@@ -79,7 +95,7 @@ public class FluffyGame {
      */
     public String statInfo() {
         String info = "";
-        
+
         HashMap<String, Double> stats = pet.getStats();
         for (String stat : stats.keySet()) {
             info += stat + " on " + stats.get(stat) + "\n";

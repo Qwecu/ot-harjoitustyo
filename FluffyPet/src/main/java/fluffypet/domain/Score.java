@@ -44,6 +44,6 @@ public class Score implements Comparator<Score> {
 
     @Override
     public int compare(Score o1, Score o2) {
-        return o1.score - o2.score;
+        return o2.score - o1.score;
     }
 }

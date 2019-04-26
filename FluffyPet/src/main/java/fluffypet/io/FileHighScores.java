@@ -10,6 +10,7 @@ import fluffypet.domain.Settings;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,8 +25,9 @@ public class FileHighScores implements IHighScores {
 
     @Override
     public List<Score> getAll() {
+        Collections.sort(highScores, new Score(null, 0));
         return highScores;
-        
+
     }
 
     public FileHighScores(String file) throws Exception {

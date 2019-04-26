@@ -111,6 +111,7 @@ public class FluffyFXUI extends Application {
                 .addAll(lblHighScores, btnExitHighScores);
         hbHighScores.setSpacing(
                 10);
+        hbHighScores.setAlignment(Pos.CENTER);
         Scene highScoresScene = new Scene(hbHighScores, 600, 650);
 
         Label lblPlayerName = new Label("Enter your name:");
@@ -141,6 +142,7 @@ public class FluffyFXUI extends Application {
                 .addAll(lblPlayerName, txtPlayerName, enterNameButton);
         hbEnterName.setSpacing(
                 10);
+        hbEnterName.setAlignment(Pos.CENTER);
         Scene enterNameScene = new Scene(hbEnterName, 600, 650);
 
         for (String stat : Settings.DefaultStats) {

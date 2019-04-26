@@ -9,18 +9,21 @@ import fluffypet.domain.Score;
 import java.util.List;
 
 /**
+ * Interface for accessing high scores.
  *
  * @author Aubergine
  */
 public interface IHighScores {
 
     /**
-     * Adds score to high score list if high enough
+     * Adds score to high score list if high enough.
+     *
      * @param score Score to add
      */
     void addScore(Score score);
 
     /**
+     * High scores.
      *
      * @return High scores
      */

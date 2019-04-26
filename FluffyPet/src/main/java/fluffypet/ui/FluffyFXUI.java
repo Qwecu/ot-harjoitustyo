@@ -89,8 +89,8 @@ public class FluffyFXUI extends Application {
         for (String s : statValues.keySet()) {
             statdata.get(s).getData().add(new XYChart.Data(age, statValues.get(s)));
         }
-        statdata.get("Yliannostus").getData().add(new XYChart.Data(age, Settings.LethalDeviationAmount));
-        statdata.get("Puutoskuolema").getData().add(new XYChart.Data(age, Settings.LethalDeviationAmount * -1.0));
+        statdata.get("Yliannostus").getData().add(new XYChart.Data(age, Settings.lethalDeviationAmount));
+        statdata.get("Puutoskuolema").getData().add(new XYChart.Data(age, Settings.lethalDeviationAmount * -1.0));
 
     }
 
@@ -149,7 +149,7 @@ public class FluffyFXUI extends Application {
         hbEnterName.setAlignment(Pos.CENTER);
         Scene enterNameScene = new Scene(hbEnterName, 600, 650);
 
-        for (String stat : Settings.DefaultStats) {
+        for (String stat : Settings.defaultStats) {
             statdata.put(stat, new XYChart.Series());
         }
 

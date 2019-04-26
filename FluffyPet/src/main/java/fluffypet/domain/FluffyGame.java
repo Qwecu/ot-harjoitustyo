@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * The game object.
  *
  * @author Aubergine
  */
@@ -22,37 +23,38 @@ public class FluffyGame {
     private IHighScores highScores;
 
     /**
-     * Creates a new game using the default Settings
+     * Creates a new game using the default Settings.
      *
-     * @throws Exception
+     * @throws Exception exeption
      */
     public FluffyGame() throws Exception {
         plans = new ArrayList<>();
         highScores = new FileHighScores(Settings.highScoreFilename);
-        for (int i = 0; i < Settings.DefaultCarePlanCount; i++) {
+        for (int i = 0; i < Settings.defaultCarePlanCount; i++) {
             plans.add(new FluffyService().newCarePlan());
         }
     }
 
     /**
-     * Creates a new Pet with full health and age 0, replacing the old one
+     * Creates a new Pet with full health and age 0, replacing the old one.
      *
-     * @throws Exception
+     * @throws Exception exeption
      */
     public void createPet() throws Exception {
         pet = new FluffyService().newPet();
     }
 
     /**
+     * Count of different CarePlans in the game.
      *
-     * @return Count of different CarePlans in the game
+     * @return Count of different CarePlans in the game.
      */
     public int planCount() {
         return plans.size();
     }
 
     /**
-     * Pet
+     * Pet.
      *
      * @return pet
      */
@@ -61,7 +63,7 @@ public class FluffyGame {
     }
 
     /**
-     * Adds the score to the high score list if high enough
+     * Adds the score to the high score list if high enough.
      *
      * @param player Player name
      * @param score Player score
@@ -71,7 +73,7 @@ public class FluffyGame {
     }
 
     /**
-     * Returns the high score list
+     * Returns the high score list.
      *
      * @return The high score list
      */
@@ -80,18 +82,18 @@ public class FluffyGame {
     }
 
     /**
-     * Applies the selected CarePlan to the pet and adds +1 to the pet's age
+     * Applies the selected CarePlan to the pet and adds +1 to the pet's age.
      *
      * @param planId The id of the selected plan
      */
     public void careForPet(int planId) {
-        pet.AdvanceTime(plans.get(planId));
+        pet.advanceTime(plans.get(planId));
     }
 
     /**
-     * Returns verbal info about the pet
+     * Returns verbal info about the pet.
      *
-     * @return
+     * @return verbal info
      */
     public String statInfo() {
         String info = "";
@@ -101,7 +103,7 @@ public class FluffyGame {
             info += stat + " on " + stats.get(stat) + "\n";
         }
         info += "Lemmikkisi on " + pet.getAge() + " päivää vanha. \n";
-        info += "Pitäydy arvojen " + Settings.LethalDeviationAmount + " ja " + Settings.LethalDeviationAmount * -1.0 + " välissä, niin lemmikkisi pysyy elossa!";
+        info += "Pitäydy arvojen " + Settings.lethalDeviationAmount + " ja " + Settings.lethalDeviationAmount * -1.0 + " välissä, niin lemmikkisi pysyy elossa!";
         return info;
     }
 }

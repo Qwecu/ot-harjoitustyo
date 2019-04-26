@@ -9,6 +9,7 @@ import java.util.Random;
  * and open the template in the editor.
  */
 /**
+ * Care plan contains values that are used to increase the pet's stats.
  *
  * @author Aubergine
  */
@@ -17,8 +18,8 @@ public class CarePlan {
     private final HashMap<String, Double> statIncreases;
 
     /**
-     *Creates a new randomized CarePlan
-     * 
+     * Creates a new randomized CarePlan.
+     *
      * @param stats List of stats that are affected by the CarePlan
      */
     public CarePlan(String[] stats) {
@@ -30,7 +31,8 @@ public class CarePlan {
     }
 
     /**
-     * Stat increases
+     * Stat increases.
+     *
      * @return stat increases
      */
     public HashMap getStatIncreases() {

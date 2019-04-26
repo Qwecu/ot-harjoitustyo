@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ * File access for high scores.
+ * 
  * @author Aubergine
  */
 public class FileHighScores implements IHighScores {
@@ -31,7 +32,8 @@ public class FileHighScores implements IHighScores {
     }
 
     /**
-     * Reads the high scores from a file
+     * Reads the high scores from a file.
+     *
      * @param file filename to use (.txt)
      * @throws Exception Any I/O Exception
      */
@@ -47,8 +49,7 @@ public class FileHighScores implements IHighScores {
 
                 highScores.add(new Score(user, score));
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
         }
@@ -56,7 +57,7 @@ public class FileHighScores implements IHighScores {
     }
 
     /**
-     * Adds a new score to the high score list if the score is big enough
+     * Adds a new score to the high score list if the score is big enough.
      *
      * @param score Score to add
      */
@@ -68,8 +69,7 @@ public class FileHighScores implements IHighScores {
         }
         try {
             save();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
     }

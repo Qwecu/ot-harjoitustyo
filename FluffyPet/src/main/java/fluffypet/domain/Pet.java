@@ -8,6 +8,7 @@ package fluffypet.domain;
 import java.util.HashMap;
 
 /**
+ * A pet that is alive/dead and has stat values.
  *
  * @author Aubergine
  */
@@ -20,10 +21,10 @@ public class Pet {
     private boolean isAlive;
 
     /**
-     * Creates a new Pet with the age of 0
+     * Creates a new Pet with the age of 0.
      *
      * @param statNames The names of the stats of the created pet
-     * @throws Exception
+     * @throws Exception May throw Exception
      */
     public Pet(String[] statNames) throws Exception {
         stats = new HashMap<>();
@@ -45,11 +46,11 @@ public class Pet {
     }
 
     /**
-     * Adjusts the pet's stats according to the CarePlan and increases age by 1
+     * Adjusts the pet's stats according to the CarePlan and increases age by 1.
      *
-     * @param carePlan
+     * @param carePlan CarePlan to be applied
      */
-    public void AdvanceTime(CarePlan carePlan) {
+    public void advanceTime(CarePlan carePlan) {
         if (!isAlive) {
             return;
         }
@@ -69,7 +70,7 @@ public class Pet {
 
     private void depleteStats() {
         for (String stat : stats.keySet()) {
-            stats.put(stat, stats.get(stat) - Settings.StatDepletionDaily);
+            stats.put(stat, stats.get(stat) - Settings.statDepletionDaily);
         }
     }
 
@@ -84,7 +85,7 @@ public class Pet {
 
     private boolean isWithinHealthyLimits() {
         for (Double statValue : stats.values()) {
-            if (Math.abs(statValue) > Settings.LethalDeviationAmount) {
+            if (Math.abs(statValue) > Settings.lethalDeviationAmount) {
                 return false;
             }
         }
@@ -92,7 +93,7 @@ public class Pet {
     }
 
     /**
-     * Returns true if the pet is alive
+     * Returns true if the pet is alive.
      *
      * @return true = alive, false = dead
      */
@@ -101,15 +102,16 @@ public class Pet {
     }
 
     /**
-     * Stats
-     * @return stats 
+     * Stats.
+     *
+     * @return stats
      */
     public HashMap<String, Double> getStats() {
         return stats;
     }
 
     /**
-     * Returns the age of the pet
+     * Returns the age of the pet.
      *
      * @return Age of the pet
      */
@@ -118,8 +120,9 @@ public class Pet {
     }
 
     /**
-     * Score
-     * @return score 
+     * Score.
+     *
+     * @return score
      */
     public int getScore() {
         return (int) score;

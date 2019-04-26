@@ -8,6 +8,7 @@ package fluffypet.domain;
 import java.util.Scanner;
 
 /**
+ * A text UI version for the game.
  *
  * @author Aubergine
  */
@@ -16,7 +17,8 @@ public class FluffyService {
     static FluffyGame game;
 
     /**
-     * The Main method
+     * The Main method.
+     *
      * @param args args
      * @throws Exception May throw Exception
      */
@@ -32,44 +34,31 @@ public class FluffyService {
                 int planint = Integer.parseInt(planstring);
                 game.careForPet(planint - 1);
                 System.out.println(game.statInfo());
-                //printStats(game.getPet());
-
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Yritä uudelleen");
             }
         }
         System.out.println("Kuolit! Pisteesi: " + pet.getAge());
     }
-    /*
-
-     private static void printStats(Pet pet) {
-
-     HashMap<String, Double> stats = pet.getStats();
-     for (String stat : stats.keySet()) {
-     System.out.println(stat + " on " + stats.get(stat));
-     }
-     System.out.println("Lemmikkisi on " + pet.getAge() + " päivää vanha");
-     } */
 
     /**
-     * Returns a new pet with the default settings
+     * Returns a new pet with the default settings.
      *
      * @return A new pet with the default settings
-     * @throws Exception
+     * @throws Exception May throw Exception
      */
     public Pet newPet() throws Exception {
-        return new Pet(Settings.DefaultStats);
+        return new Pet(Settings.defaultStats);
     }
 
     /**
-     * Returns a new CarePlan with the default settings
+     * Returns a new CarePlan with the default settings.
      *
      * @return A new CarePlan with the default settings
-     * @throws Exception
+     * @throws Exception May throw Exception
      */
     public CarePlan newCarePlan() throws Exception {
-        return new CarePlan(Settings.DefaultStats);
+        return new CarePlan(Settings.defaultStats);
     }
 
 }

@@ -8,7 +8,8 @@ package fluffypet.domain;
 import java.util.Comparator;
 
 /**
- *
+ * Contains a player name and score.
+ * 
  * @author Aubergine
  */
 public class Score implements Comparator<Score> {
@@ -17,6 +18,7 @@ public class Score implements Comparator<Score> {
     private final int score;
 
     /**
+     * Creates a new Score.
      *
      * @param playerName Player name
      * @param gameScore Game score
@@ -27,6 +29,7 @@ public class Score implements Comparator<Score> {
     }
 
     /**
+     * Player name.
      *
      * @return Name of the player
      */
@@ -35,6 +38,7 @@ public class Score implements Comparator<Score> {
     }
 
     /**
+     * Score.
      *
      * @return Score
      */
@@ -42,6 +46,13 @@ public class Score implements Comparator<Score> {
         return score;
     }
 
+    /**
+     * Compare two Scores.
+     *
+     * @param o1 score 1
+     * @param o2 score 2
+     * @return result of comparison
+     */
     @Override
     public int compare(Score o1, Score o2) {
         return o2.score - o1.score;

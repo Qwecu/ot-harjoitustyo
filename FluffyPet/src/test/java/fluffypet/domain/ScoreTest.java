@@ -26,5 +26,5 @@ public class ScoreTest {
         Score score2 = new Score("a", 14);
         assertTrue(score1.compare(score1, score2) == 1);
     }
-
+    
 }

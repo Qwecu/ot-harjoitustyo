@@ -5,7 +5,6 @@ package fluffypet.domain;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import fluffypet.domain.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -34,12 +33,30 @@ public class FluffyPetTest {
         FluffyGame game = new FluffyGame();
         assertTrue(game.planCount() > 0);
     }
-    
-    public void care() throws Exception{
+
+    @Test
+    public void statsInfoTest() throws Exception {
+        FluffyGame game = new FluffyGame();
+        assertTrue(game.statInfo().equals(""));
+        game.createPet();
+        assertFalse(game.statInfo().equals(""));
+    }
+
+    @Test
+    public void care() throws Exception {
         FluffyGame game = new FluffyGame();
         game.createPet();
         int i = game.getPet().getAge();
         game.careForPet(0);
         assertTrue(game.getPet().getAge() - i == 1);
+    }
+
+    @Test
+    public void score() throws Exception {
+        FluffyGame game = new FluffyGame();
+        game.createPet();
+        int i = game.getPet().getScore();
+        game.careForPet(0);
+        assertTrue(game.getPet().getScore() != i);
     }
 }

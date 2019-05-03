@@ -98,12 +98,14 @@ public class FluffyGame {
     public String statInfo() {
         String info = "";
 
-        HashMap<String, Double> stats = pet.getStats();
-        for (String stat : stats.keySet()) {
-            info += stat + " on " + stats.get(stat) + "\n";
+        if (pet != null) {
+            HashMap<String, Double> stats = pet.getStats();
+            for (String stat : stats.keySet()) {
+                info += stat + " on " + stats.get(stat) + "\n";
+            }
+            info += "Lemmikkisi on " + pet.getAge() + " päivää vanha. \n";
+            info += "Pitäydy arvojen " + Settings.lethalDeviationAmount + " ja " + Settings.lethalDeviationAmount * -1.0 + " välissä, niin lemmikkisi pysyy elossa!";
         }
-        info += "Lemmikkisi on " + pet.getAge() + " päivää vanha. \n";
-        info += "Pitäydy arvojen " + Settings.lethalDeviationAmount + " ja " + Settings.lethalDeviationAmount * -1.0 + " välissä, niin lemmikkisi pysyy elossa!";
         return info;
     }
 }

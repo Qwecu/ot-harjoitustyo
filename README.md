@@ -8,9 +8,12 @@ Sovelluksen idea on kasvattaa lemmikki mahdollisimman korkeaan ikään.
 
 [vaatimusmaarittely.md](https://github.com/Qwecu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
+[arkkitehtuurikuvaus.md](https://github.com/Qwecu/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Releaset
 
-## Komentorivitoiminnot
+[Viikko 6](https://github.com/Qwecu/ot-harjoitustyo/releases/tag/Viikko6)
+
 
 ### Testaus
 

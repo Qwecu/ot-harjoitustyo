@@ -17,31 +17,6 @@ public class FluffyService {
     static FluffyGame game;
 
     /**
-     * The Main method.
-     *
-     * @param args args
-     * @throws Exception May throw Exception
-     */
-    public static void main(String[] args) throws Exception {
-        game = new FluffyGame();
-        Scanner sc = new Scanner(System.in);
-
-        Pet pet = new FluffyService().newPet();
-        while (game.getPet().isLiving()) {
-            System.out.println("Mitä hoito-ohjelmaa sovelletaan tänään? (1-" + game.planCount() + ")");
-            String planstring = sc.nextLine();
-            try {
-                int planint = Integer.parseInt(planstring);
-                game.careForPet(planint - 1);
-                System.out.println(game.statInfo());
-            } catch (Exception e) {
-                System.out.println("Yritä uudelleen");
-            }
-        }
-        System.out.println("Kuolit! Pisteesi: " + pet.getAge());
-    }
-
-    /**
      * Returns a new pet with the default settings.
      *
      * @return A new pet with the default settings

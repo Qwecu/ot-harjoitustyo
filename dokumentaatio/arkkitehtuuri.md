@@ -14,16 +14,17 @@ Ui sisältää käyttöliittymän koodin, domain sovelluslogiikan ja io tietojen
 
 ## Käyttöliittymä
 
-Käyttöliittymä sisältää erilaisia näkymiä
-- aloitusikkuns
+Käyttöliittymä sisältää neljä näkymää
+- aloitusikkuna
 - pelinäkymä
+- Peli päättyi, anna nimesi -näkymä
 - high scores -lista
 
 Näkymät on toteutettu erillisinä javafx.scene-olioina, ja yksi kerrallaan on näkyvissä.
 
 ## Sovelluslogiikka
 
-
+Sovellus toimii niin, että käyttäjä painaa haluamansa hoito-ohjelman nappulaa. FluffyGame-olio ottaa tiedon vastaan ja välittää sen Pet-oliolle. Tämän jälkeen tiedot Pet-olion Stats-listan arvoista välitetään käyttöliittymään, ja uudet arvot lisätään käyttäjän näkyville graafiin.
 
 ## Tietojen tallennus tiedostoon
 
@@ -39,9 +40,6 @@ Tiedot tallennetaan .txt-tiedostoon. Ohjelma luo hiScores.txt-nimisen tiedoston,
 nimi;pisteet
 
 , missä nimi on pelaajan nimi ja pisteet kokonaisluku.
-
-### Päätoiminnallisuudet
-
 
 
 #### Uusi peli

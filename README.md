@@ -14,6 +14,7 @@ Sovelluksen idea on kasvattaa lemmikki mahdollisimman korkeaan ikään.
 
 [Viikko 6](https://github.com/Qwecu/ot-harjoitustyo/releases/tag/Viikko6)
 
+[Loppupalautus](https://github.com/Qwecu/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ### Testaus
 
@@ -32,6 +33,13 @@ mvn jacoco:report
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
 
 ### Suoritettavan jarin generointi
+
+.jar-tiedosto generoidaan komennolla
+
+```
+mvn package
+```
+
 
 ### JavaDoc
 
